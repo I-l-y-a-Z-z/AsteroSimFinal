@@ -10,7 +10,7 @@ const EndScreen = ({ message, onBackToMenu }) => (
         className="end-screen-button"
         onClick={() => {
           if (typeof onBackToMenu === 'function') onBackToMenu();
-          if (typeof window !== 'undefined') window.location.href = 'http://localhost:3001';
+          if (typeof window !== 'undefined') window.location.href = 'https://asterosim.vercel.app/';
         }}
       >
         Go Back to Menu
