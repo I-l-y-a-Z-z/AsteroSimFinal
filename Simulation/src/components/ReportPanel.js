@@ -37,7 +37,7 @@ const ReportPanel = ({ consequences, crashSite, onClose }) => {
           className="report-close-button"
           onClick={() => {
             if (typeof onClose === 'function') onClose();
-            if (typeof window !== 'undefined') window.location.href = 'http://localhost:3001';
+            if (typeof window !== 'undefined') window.location.href = 'https://asterosim.vercel.app/';
           }}
         >
           Go Back to Menu
