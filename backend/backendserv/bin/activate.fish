@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/ilyazz/AsteroSim/backend/tmp/backendserv
+set -gx VIRTUAL_ENV /home/ilyazz/AsteroSim/backend/backendserv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

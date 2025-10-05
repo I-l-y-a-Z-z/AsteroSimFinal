@@ -7,42 +7,52 @@ export default function WelcomeScreen() {
   const navigate = useNavigate();
 
   return (
-    <div className="welcome-wrapper">
-      {/* Background layers */}
+    <div className="story-wrapper">
       <div className="stars"></div>
       <div className="earth-glow"></div>
-      
 
-      {/* Main content */}
-      <div className="content">
+      <div className="story-card">
         <motion.h1
-          className="main-title"
-          initial={{ opacity: 0, y: -30 }}
+          className="story-title"
+          initial={{ opacity: 0, y: -24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2 }}
+          transition={{ duration: 1 }}
         >
-          Astero Sim
+          AsteroSim — Mission Briefing
         </motion.h1>
 
         <motion.p
-          className="tagline"
+          className="story-text"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 1.2 }}
+          transition={{ delay: 0.6, duration: 1 }}
         >
-          Humanity's fate is in your hands.
-          Track incoming comets. Devise defenses.
-          Simulate outcomes — and save Earth from cosmic threats.
+          You're the new mission lead at the Planetary Defense Center. Earlier today, telescopes
+          detected a set of candidate asteroids that will make close approaches. Your task: choose
+          an asteroid, inspect its stats, and run the simulation to evaluate impact scenarios.
         </motion.p>
 
-        <motion.button
-          className="mission-button"
-          onClick={() => navigate("/select-comet")}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Begin Mission
-        </motion.button>
+        <div className="story-actions">
+          <motion.button
+            className="btn-primary"
+            onClick={() => navigate("/select-comet")}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            View Asteroid Candidates
+          </motion.button>
+
+          <motion.button
+            className="btn-secondary"
+            onClick={() => navigate("/simulation")}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Quick Simulation Demo
+          </motion.button>
+        </div>
+
+        <div className="story-hint">Tip: Pick a recent date to find nearby asteroid approaches.</div>
       </div>
     </div>
   );

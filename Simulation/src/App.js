@@ -158,6 +158,7 @@ function App() {
   const [timeScale, setTimeScale] = useState(1);
   const [currentDate, setCurrentDate] = useState("Initializing...");
   const [lastTimeScale, setLastTimeScale] = useState(1);
+  const lastTimeScaleRef = useRef(1);
   const timeControlsEnabled = storyIndex >= 3;
   const [showMeasuresPanel, setShowMeasuresPanel] = useState(false);
   const [activeMeasure, setActiveMeasure] = useState(null);
@@ -239,13 +240,25 @@ function App() {
 
   const handleAccelerate = () => setTimeScale(prev => Math.min(prev * 2, 64));
   const handleReduce = () => setTimeScale(prev => Math.max(prev / 2, 0.25));
-  const handleStopTime = () => {
+  // Keep a ref of the last non-zero timescale to avoid stale state when toggling pause/resume
+  useEffect(() => {
     if (timeScale !== 0) {
+      lastTimeScaleRef.current = timeScale;
       setLastTimeScale(timeScale);
-      setTimeScale(0);
-    } else {
-      setTimeScale(lastTimeScale || 1);
     }
+  }, [timeScale]);
+
+  const handleStopTime = () => {
+    setTimeScale(prev => {
+      if (prev === 0) {
+        // resume to the last non-zero timescale (fallback to 1)
+        return lastTimeScaleRef.current || 1;
+      }
+      // pause: store the current non-zero timescale and set to 0
+      lastTimeScaleRef.current = prev;
+      setLastTimeScale(prev);
+      return 0;
+    });
   };
   
   const handleAsteroidInfo = () => {

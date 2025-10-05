@@ -122,6 +122,9 @@ const SolarSystem = (props) => {
         const radius_m = (diameter_km * 1000) / 2;
         const volume_m3 = (4/3) * Math.PI * Math.pow(radius_m, 3);
         asteroidMass = volume_m3 * density;
+        // Cap asteroid mass to a maximum to avoid unrealistically large values
+        const MAX_ASTEROID_MASS = 1e8; // kg
+        asteroidMass = Math.min(asteroidMass, MAX_ASTEROID_MASS);
       }
 
       // Tractor deviation logic
@@ -131,9 +134,11 @@ const SolarSystem = (props) => {
             activeMeasure.phase === 'orbiting' &&
             !asteroidDeviated
           ) {
-            const tractorMass = activeMeasure.mass || 0;
-      // If tractor mass is at least 0.000000764 (7.64e-7) of asteroid mass, deviation is possible
-      if (tractorMass >= asteroidMass * 0.000000764) {
+    const tractorMass = activeMeasure.mass || 0;
+  // Require an absolute minimum mass and a relative threshold before deviation is possible
+  const MIN_TRACTOR_MASS = 100000; // kg - tractor must reach at least 100,000 kg
+  const RELATIVE_THRESHOLD = 1 / 1000; // 0.001 (1/1000)
+  if (tractorMass >= MIN_TRACTOR_MASS && tractorMass >= asteroidMass * RELATIVE_THRESHOLD) {
               // Deviate asteroid: move it far from Earth
               const deviationVector = new THREE.Vector3(1, 0, 1).normalize().multiplyScalar(100);
               asteroid.position.add(deviationVector);

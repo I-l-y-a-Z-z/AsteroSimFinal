@@ -33,7 +33,13 @@ const ReportPanel = ({ consequences, crashSite, onClose }) => {
           </div>
         </div>
 
-        <button className="report-close-button" onClick={onClose}>
+        <button
+          className="report-close-button"
+          onClick={() => {
+            if (typeof onClose === 'function') onClose();
+            if (typeof window !== 'undefined') window.location.href = 'http://localhost:3001';
+          }}
+        >
           Go Back to Menu
         </button>
       </div>

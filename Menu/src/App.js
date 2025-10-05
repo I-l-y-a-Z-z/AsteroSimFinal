@@ -7,10 +7,26 @@ import "./App.css";
 const simulation_port = "localhost:3000";
 
 function SimulationPage() {
-  const comet = JSON.parse(localStorage.getItem("selectedComet"));
-  console.log(comet);
+  const raw = localStorage.getItem("selectedAsteroid");
+  if (!raw) {
+    // no selection: log and send user back to selection page
+    console.warn("No selected asteroid found in localStorage. Redirecting to selection.");
+    // try to navigate back to the selection route
+    window.location.href = "/select-comet";
+    return null;
+  }
 
-  const data = encodeURIComponent(JSON.stringify(comet));
+  let asteroid = null;
+  try {
+    asteroid = JSON.parse(raw);
+  } catch (err) {
+    console.error("Failed to parse selectedAsteroid from localStorage:", err, raw);
+    window.location.href = "/select-comet";
+    return null;
+  }
+
+  console.log("Launching simulation for:", asteroid);
+  const data = encodeURIComponent(JSON.stringify(asteroid));
   window.location.href = `http://${simulation_port}?data=${data}`;
   return null;
 }
