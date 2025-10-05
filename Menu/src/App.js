@@ -27,7 +27,7 @@ function SimulationPage() {
 
   console.log("Launching simulation for:", asteroid);
   const data = encodeURIComponent(JSON.stringify(asteroid));
-  window.location.href = `http://${simulation_port}?data=${data}`;
+  window.location.href = `${simulation_port}?data=${data}`;
   return null;
 }
 
