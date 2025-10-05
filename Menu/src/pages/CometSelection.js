@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./CometSelection.css";
 
-const backend_port = "https://asterobackend-production.up.railway.app/";
+const backend_port = "https://asterobackend-production.up.railway.app";
 
 export default function CometSelection() {
   const [asteroids, setAsteroids] = useState([]);
