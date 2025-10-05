@@ -4,7 +4,7 @@ import WelcomeScreen from "./pages/WelcomeScreen";
 import CometSelection from "./pages/CometSelection";
 import "./App.css";
 
-const simulation_port = "localhost:3000";
+const simulation_port = "https://astero-simulation-service.vercel.app/";
 
 function SimulationPage() {
   const raw = localStorage.getItem("selectedAsteroid");
