@@ -28,7 +28,7 @@ export default function CometSelection() {
       try {
         // encode params
         const params = new URLSearchParams({ start: date, end: date, rate: String(rate) }).toString();
-        const url = `http://${backend_port}/get_range?${params}`;
+        const url = `${backend_port}/get_range?${params}`;
 
         let res;
         try {
