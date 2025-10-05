@@ -1,0 +1,118 @@
+.welcome-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(ellipse at bottom, #0d1b2a, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Moving starfield background */
+.stars {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  animation: moveStars 200s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes moveStars {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Earth glow near the bottom */
+.earth-glow {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 600px;
+  background: radial-gradient(circle at top, rgba(0, 153, 255, 0.6), transparent);
+  filter: blur(120px);
+  opacity: 0.7;
+}
+
+/* Main content */
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  padding: 2rem;
+  color: white;
+}
+
+/* Title */
+.main-title {
+  font-size: 5rem;
+  font-weight: 900;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+/* Tagline text */
+.tagline {
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #cfd8e3;
+  margin-bottom: 3rem;
+}
+
+/* Start button */
+.mission-button {
+  padding: 1.2rem 3.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(90deg, #4f46e5, #00c6ff);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 30px rgba(79, 70, 229, 0.7);
+}
+
+.mission-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #5b5bf0, #00e5ff);
+  box-shadow: 0 0 40px rgba(0, 198, 255, 0.9);
+}
+
+.loading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00c6ff;
+  text-shadow: 0 0 20px rgba(0, 198, 255, 0.8), 0 0 40px rgba(0, 198, 255, 0.4);
+  text-align: center;
+  margin: 4rem auto;
+  letter-spacing: 2px;
+  animation: pulseGlow 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+    text-shadow: 0 0 10px rgba(0, 198, 255, 0.4);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+    text-shadow: 0 0 25px rgba(0, 198, 255, 0.8), 0 0 50px rgba(0, 198, 255, 0.5);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+    text-shadow: 0 0 10px rgba(0, 198, 255, 0.4);
+  }
+}

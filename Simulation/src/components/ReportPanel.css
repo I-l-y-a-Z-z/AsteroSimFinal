@@ -1,0 +1,91 @@
+/* src/components/ReportPanel.css */
+
+.report-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 400; /* Highest z-index */
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .report-window {
+    width: 90vw;
+    max-width: 800px;
+    background: rgba(50, 20, 20, 0.9);
+    border: 1px solid red;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.5);
+    padding: 30px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .report-header {
+    text-align: center;
+    font-size: 2.5rem;
+    color: red;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    border-bottom: 2px solid red;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px red;
+  }
+  
+  .report-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .report-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-left: 3px solid red;
+  }
+  
+  .report-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  
+  .report-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffdddd;
+  }
+  
+  .report-summary {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .report-close-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background: rgba(255, 0, 0, 0.3);
+    border: 1px solid rgba(255, 0, 0, 0.8);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .report-close-button:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+  }

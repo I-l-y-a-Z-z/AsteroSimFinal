@@ -1,0 +1,27 @@
+/* src/components/StoryCard.css */
+
+.story-card-button {
+    flex-grow: 1;
+    padding: 12px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid rgba(0, 191, 255, 0.8);
+    background: rgba(0, 191, 255, 0.2);
+    color: white;
+    border-radius: 8px;
+    margin: 0 5px;
+    
+    /* These transitions are now handled by CSS */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+  }
+  
+  /* This is the magic: the ':hover' pseudo-selector */
+  .story-card-button:hover {
+    background-color: rgba(0, 191, 255, 0.4);
+  }
+  
+  /* A subtle effect for when the button is being clicked */
+  .story-card-button:active {
+    transform: scale(0.98);
+  }
