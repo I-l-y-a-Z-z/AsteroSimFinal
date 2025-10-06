@@ -21,7 +21,7 @@ const planetsData = [
 ];
 
 const ASTEROID_START_POS = new THREE.Vector3(30, 5, -30);
-const ASTEROID_SPEED = 1;
+const ASTEROID_SPEED = 0.4;
 const IMMINENT_CRASH_DISTANCE = 3.0;
 
 const SolarSystem = (props) => {
