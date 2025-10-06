@@ -52,8 +52,8 @@ export default function WelcomeScreen() {
           </motion.button>
         </div>
 
-        <div className="story-hint">Tip: Pick a recent date to find nearby asteroid approaches.<br>
-              Made by Team HackX: Ilyas Rahmouni, Haitam Laghmam, Zakaria Harira <br>
+        <div className="story-hint">Tip: Pick a recent date to find nearby asteroid approaches.</br>
+              Made by Team HackX: Ilyas Rahmouni, Haitam Laghmam, Zakaria Harira </br>
               As part of the Nasa Space Apps Challenge Benguerir 2025</div>
       </div>
     </div>
